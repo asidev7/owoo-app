@@ -1,0 +1,80 @@
+
+{% extends 'layout/base.html' %}
+
+{% load static %}
+
+
+{% block main %}
+
+
+{% include 'layout/wrapper.html' %}
+<!-- ! Main -->
+    <main class="main users chart-page" id="skip-target">
+      <div class="container">
+        <h2 class="main-title">Tableau bord</h2>
+        <div class="row stat-cards">
+        </div>  
+
+        <div class="row stat-cards">
+
+          <!-- Members Card -->
+          <div class="col-md-6 col-xl-3">
+            <article class="stat-cards-item">
+              <div class="stat-cards-icon primary">
+                <i data-feather="users" aria-hidden="true"></i> <!-- Assuming a users icon for members -->
+              </div>
+              <div class="stat-cards-info">
+                <p class="stat-cards-info__num">{{tototal_participations}}</p>
+                <p class="stat-cards-info__title">Total participants</p>
+              </div>
+            </article>
+          </div>
+        
+          <!-- Ongoing Tontines Card -->
+          <div class="col-md-6 col-xl-3">
+            <article class="stat-cards-item">
+              <div class="stat-cards-icon primary">
+                <i data-feather="clock" aria-hidden="true"></i> <!-- Assuming a clock icon for ongoing tontines -->
+              </div>
+              <div class="stat-cards-info">
+                <p class="stat-cards-info__num">{{ total_tontines }}</p>
+                <p class="stat-cards-info__title">Tontines en cours</p>
+              </div>
+            </article>
+          </div>
+        
+          <!-- Total Deposits Card -->
+          <div class="col-md-6 col-xl-3">
+            <article class="stat-cards-item">
+              <div class="stat-cards-icon primary">
+                <i data-feather="dollar-sign" aria-hidden="true"></i> <!-- Assuming a dollar sign icon for total deposits -->
+              </div>
+              <div class="stat-cards-info">
+                <p class="stat-cards-info__num">{{ total_deposits }}</p>
+                <p class="stat-cards-info__title">Depots </p>
+              </div>
+            </article>
+          </div>
+        
+          <!-- Managers Card -->
+          <div class="col-md-6 col-xl-3">
+            <article class="stat-cards-item">
+              <div class="stat-cards-icon primary">
+                <i data-feather="dollar-sign" aria-hidden="true"></i> <!-- Assuming a user icon for managers -->
+              </div>
+              <div class="stat-cards-info">
+                <p class="stat-cards-info__num">{{ total_withdrawals }}</p>
+                <p class="stat-cards-info__title"> Retraits</p>
+              </div>
+            </article>
+          </div>
+        
+        </div>
+        
+    </main>
+
+
+
+  
+
+    {% endblock %}

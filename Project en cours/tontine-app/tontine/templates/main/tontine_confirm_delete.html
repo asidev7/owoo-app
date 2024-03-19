@@ -1,0 +1,32 @@
+
+
+{% extends 'layout/base.html' %}
+
+{% load static %}
+
+
+{% block main %}
+
+
+{% include 'layout/wrapper.html' %}
+<!-- ! Main -->
+    <main class="main users chart-page" id="skip-target">
+      <div class="container">
+        <h2 class="main-title">Dashboard</h2>
+        <div class="row stat-cards">
+        </div>  
+    </main>
+
+    <form method="post" class="form">
+
+<h1 class="text-light">Supprimer la Tontine</h1>
+<p class="text-light">Êtes-vous sûr de vouloir supprimer la tontine "{{ object.nom_tontine }}" ??</p>
+
+  {% csrf_token %}
+  <br>
+  <button type="submit" class="btn btn-danger">Confirmer la suppression</button>
+</form>
+    
+  
+
+    {% endblock %}

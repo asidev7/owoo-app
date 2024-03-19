@@ -1,0 +1,57 @@
+
+{% extends 'layout/base.html' %}
+
+{% load static %}
+
+
+{% block main %}
+
+
+{% include 'layout/wrapper.html' %}
+<!-- ! Main -->
+<main class="main users chart-page" id="skip-target">
+    <div class="container">
+      <h2 class="main-title">Membres</h2>
+      <div class="row stat-cards">
+      </div>  
+  </main>
+
+<div class="table">
+    <div class="users-table table-wrapper p-2">
+      <table class="posts-table">
+        <thead>
+            <tr class="users-table-info">
+                <th>ID</th>
+                <th>Gestionaires</th>
+                <th>Nom et Prenom</th>
+                <th>Date d'adhesion</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for participant in participants %}
+            <tr>
+                <td>{{ participant.id }}</td>
+                <td>{{participant.tontine.gestionnaire.nom}}</td>
+                <td>{{ participant.membre.nom }} {{ participant.membre.prenom }}</td>
+                <td>{{participant.date_adhesion}}</td>
+                <td class="py-2">
+                    <i class="fa fa-eye m-2"></i>
+                    <a href=""><i class="fa fa-edit m-2"></i></a>
+                    <a href="#" data-toggle="modal" data-target="#confirmDeleteModal{{ tontine.id }}">
+                      <i class="fa text-danger fa-trash m-2"></i>
+                    </a>                
+                </td>
+            </tr>
+            {% empty %}
+            <tr>
+            <td><p>No data</p></td>
+          </tr>
+            {% endfor %}
+
+        </tbody>
+    </table>
+    </div>
+</div>
+
+{% endblock %}

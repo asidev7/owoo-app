@@ -1,0 +1,52 @@
+{% extends 'layout/base.html' %}
+
+{% load static %}
+
+
+{% block main %}
+
+{% include 'layout/wrapper.html' %}
+<!-- ! Main -->
+    <main class="main users chart-page" id="skip-target">
+      <div class="container">
+        <h2 class="main-title">Modifier {{tontine.nom_tontine}}</h2>
+        <div class="row stat-cards">
+        </div>  
+    </main>
+    <form method="post" class="form">
+        {% csrf_token %}
+        
+        <label class="form-label-wrapper">
+          <p class="form-label">Nom Tontine</p>
+          <input class="form-input" type="text" name="{{ form.nom_tontine.name }}" value="{{ form.nom_tontine.value|default:'' }}" placeholder="Enter tontine name" required>
+        </label>
+    
+        <label class="form-label-wrapper">
+          <p class="form-label">Description</p>
+          <textarea class="form-input" name="{{ form.description.name }}" placeholder="Enter tontine description" required>{{ form.description.value|default:'' }}</textarea>
+        </label>
+    
+        <label class="form-label-wrapper">
+          <p class="form-label">Montant Max</p>
+          <input class="form-input" type="number" name="{{ form.montant_max.name }}" value="{{ form.montant_max.value|default:'' }}" placeholder="Enter max amount" required>
+        </label>
+    
+        <label class="form-label-wrapper">
+          <p class="form-label">Effectifs Max</p>
+          <input class="form-input" type="number" name="{{ form.effectifs_max.name }}" value="{{ form.effectifs_max.value|default:'' }}" placeholder="Enter max participants" required>
+        </label>
+    
+        <label class="form-label-wrapper">
+          <p class="form-label">Durée Paiement</p>
+         <input class="form-input" type="text" name="{{ form.duree_paiement.name }}" value="{{ form.duree_paiement.value|default:'' }}" placeholder="Enter payment duration" required>
+        </label>
+    
+        <button type="submit" class="btn btn-danger">Save changes</button>
+        <br>
+        <br>
+      </form>    
+
+    
+  
+
+    {% endblock %}
